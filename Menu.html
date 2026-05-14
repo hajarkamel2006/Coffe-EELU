@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Coffee</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        
+        :root {
+            --primary-gold: #e4d7bd;
+            --cream-card: #fffaf0;
+            --text-color: #3c1e1a;
+            --text-light: #f5ebe0;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color:#e4d7bd; 
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+
+
+        .main-header {
+            background-color: var(--text-color);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position:  relative;
+            top: 0;
+        }
+
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+           header li:hover{
+             color: #2c1613;
+    background-color: #e49b5b;
+         }
+
+        .logo a {
+            text-decoration: none;
+            font-weight: bold;
+            color: var(--cream-card);
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+
+        .navbar a {
+            text-decoration: none;
+            color: var(--cream-card);
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: var(--cream-card);
+        }
+
+
+     
+        .filter-container {
+            display: flex;
+            justify-content: center;
+             border: 1px solid var(--primary-gold);
+             border-radius: 60px;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--primary-gold);
+            color: var(--text-color);
+            padding: 10px 30px;
+            cursor: pointer;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: var(--transition);}
+  
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 20px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(196, 155, 99, 0.1);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-20px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .item-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .menu-item:hover .item-image img {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        .item-content {
+            padding: 25px;
+            text-align: right;
+        }
+
+        .item-content h3 {
+            color: #4a342e;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .item-content p {
+            font-size: 0.95rem;
+            color: #4a342e;
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+        }
+
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #4a342e;
+        }
+
+        .add-btn {
+            background: rgba(196, 155, 99, 0.1);
+            border: none;
+            color: #4a342e;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-btn:hover {
+            background: var(--primary-gold);
+            color: #4a342e;
+        }
+
+
+
+        @media (max-width: 850px) {
+
+            .story-container,
+            .footer-grid {
+                flex-direction: column;
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+     
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+    
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <header class="main-header ">
+        <div class="header-container">
+            <div class="logo">
+                <a href="#">☕coffee</a>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./About.html">About Us</a></li>
+                    <li><a href="./Menu.html">Menu</a></li>
+                    <li><a href="./اراء العملاء.html">Customer Reviews</a></li>
+                    <li><a href="./Cotactus.html">Contact Us</a></li>
+                    <li><a href="./index (1).html">Gallery</a></li>
+                     <li><a href="./Cotactus.html">login</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+ 
+ <br><br><br><br>
+
+    <main class="menu-grid" id="menuGrid">
+        <div class="menu-item coffee" data-category="coffee">
+            <div class="item-image">
+                <img src="./Spanich Latte.jpg " alt="سبانش لاتيه">
+            </div>
+            <div class="item-content">
+                <h3> Spanich Latte</h3>
+                <p>Premium Espresso with locally sourced condensed milk.</p>
+                <div class="item-footer">
+                    <span class="price">85 EGP</span>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item coffee" data-category="coffee">
+            <div class="item-image">
+                <img src="./Flat white.jpg" alt="فلات وايت">
+            </div>
+            <div class="item-content">
+                <h3>Flat white</h3>
+                <p>A Perfect balance between rich milk foam and a strong coffe taste.</p>
+                <div class="item-footer">
+                    <span class="price">75 EGP</span>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item cold" data-category="cold">
+            <div class="item-image">
+                <img src="./ICE Pistachio.jpg" alt="موجيتو">
+            </div>
+            <div class="item-content">
+                <h3>ICE Pistachio</h3>
+                <p> Cold brew cofe blended with authentic pistachio cream.</p>
+                <div class="item-footer">
+                    <span class="price">95 EGP</span>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item cold" data-category="cold">
+            <div class="item-image">
+                <img src="./Blue Ocean Mojito.jpg" alt="موجيتو">
+            </div>
+            <div class="item-content">
+                <h3>Blue Ocean Mojito</h3>
+                <p> A Refreshing blueberry with lemon and fresh mint.</p>
+                <div class="item-footer">
+                    <span class="price">65 EGP</span>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item desserts" data-category="desserts">
+            <div class="item-image">
+                <img src="./San Sebastain.jpg" alt="تشيز كيك">
+            </div>
+            <div class="item-content">
+                <h3> San Sebastain</h3>
+                <p>Spanish burnt cake with a creamy,melt-in-the-mouth texture.</p>
+                <div class="item-footer">
+                    <span class="price">110 EGP</span>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item desserts" data-category="desserts">
+            <div class="item-image">
+                <img src="./Lotus cheesecake.jpg" alt="لوتس">
+            </div>
+            <div class="item-content">
+                <h3>Lotus cheesecake</h3>
+                <p>Layers of ruch cream topped with sauce and lotus biscuits</p>
+                <div class="item-footer">
+                    <span class="price">90 EGP</span>
+                    <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="./menu.js"></script>
+
+
+ 
+
+
+
+
+</body>
+
+</html>

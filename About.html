@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --cream-card: #fffaf0;
+
+            --text-color: #4a221c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #e4d7bd;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+
+        header {
+            background-color: var(--text-color);
+            margin: 0px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(203, 196, 196, 0.1);
+        }
+
+        header li {
+            border-radius: 25px;
+        }
+
+        header li:hover {
+            color: #2c1613;
+            background-color: #e49b5b;
+
+        }
+
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--cream-card);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+
+            color: var(--cream-card);
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .login-btn {
+            background-color: var(--cream-card);
+            color: var(--cream-card) !important;
+            padding: 8px 25px;
+            border-radius: 20px;
+        }
+
+        .btn-login {
+            background-color: var(--cream-card);
+            color: var(--text-color) !important;
+            padding: 7px 25px;
+            border-radius: 50px;
+
+        }
+
+
+        .story-section {
+            padding: 60px 10%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .story-container {
+            background-color: var(--cream-card);
+            display: flex;
+            border-radius: 40px;
+            overflow: hidden;
+            max-width: 1120px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .story-image {
+            flex: 1;
+            min-height: 400px;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .story-content {
+            flex: 1;
+            padding: 50px;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .story-content h1 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* --- المميزات --- */
+        .features-grid {
+            padding: 0 10% 60px;
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 19px;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+
+
+        .feature-card {
+            background-color: var(--cream-card);
+            padding: 50px;
+            border-radius: 50px;
+            text-align: center;
+            color: var(--text-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 13px;
+            width: 250px;
+        }
+
+        /* --- الفوتر المصلح --- */
+        footer {
+            background-color: #e4d7bd;
+            padding: 50px 10% 20px;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--dark-brown);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .social-icons a {
+            color: var(--dark-brown);
+            font-size: 22px;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .quick-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 14px;
+        }
+
+        .map-img {
+            width: 150px;
+            height: 80px;
+            border-radius: 10px;
+            margin: 10px auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .copyright {
+            font-size: 12px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 15px;
+        }
+
+        @media (max-width:200px) {
+
+            .story-container,
+            .footer-grid {
+                flex-direction: column;
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                font-size: 28px;
+                text-align: center;
+                padding: 10px;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo">☕coffee</a>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./About.html">About</a></li>
+                <li><a href="./Menu.html">Menu</a></li>
+                <li><a href="./اراء العملاء.html">Customer Reviews</a></li>
+                <li><a href="./index (1).html">Gallery</a></li>
+                <li><a href="./Cotactus.html">Contact Us</a></li>
+                <li><a href="./Cotactus.html">login</a></li>
+
+
+            </ul>
+        </nav>
+    </header>
+    <br><br><br><br>
+    <main>
+        <section class="story-section card">
+            <div class="story-container">
+                <div class="story-image">
+                    <img src="./Abaut img.jpeg" alt="Cafe">
+                </div>
+                <div class="story-content">
+                    <h1>Our Story ☕</h1>
+                    <p>Welcome to <strong>My Resto</strong>, where passion for coffee meets the need for a peaceful
+                        workspace. Founded in 2024, we started with a simple idea: creating a home away from home.</p>
+                    <p>Every bean we brew is selected with care, and every corner of our space is designed to inspire
+                        your next big idea.</p>
+                </div>
+            </div>
+        </section>
+        <br><br><br>
+        <section class="features-grid">
+            <div class="feature-card">
+                <h3>Premium Coffee</h3>
+                <p>We source the finest organic beans to ensure every sip is a masterpiece.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Quiet Workspace</h3>
+                <p>High-speed internet and quiet zones perfect for your study or work sessions.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Cozy Vibes</h3>
+                <p>Warm lighting and comfortable seating designed for long-stay comfort.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="map-box">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.646573644664!2d31.21866232175768!3d30.046764749289032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145840d742740d01%3A0x165a1729ce2ea25b!2z2YXYsdmD2LIg2KfZhNiq2LnZhNmK2YUg2KfZhNmF2K_ZhtmKINio2KfZhNis2LLZitix2Kk!5e0!3m2!1sen!2seg!4v1776721653156!5m2!1sen!2seg"
+                        width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <p>Restaurant St, City Center</p>
+                <p>+123 456 789</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="quick-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Menu</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">All Rights Reserved | My Resto 2026 ©</div>
+    </footer>
+
+    <script src="./About.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Coffee - Gallery</title>
+
+ 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f8f5f2;
+      color: #333;
+    }
+ 
+    .navbar {
+      background:#3c1e1a;
+      padding: 10px;
+      display: flex;
+      justify-content:space-around;
+      align-items: center;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 500;
+      display: flex; 
+      align-items: center;
+       gap: 8px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin:20px;
+      font-size: 15px;
+      position:  static;
+      transition: 0.3s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #fff;
+      bottom: -4px;
+      left: 0;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+  
+    .gallery-section {
+      padding: 60px 5%;
+      text-align: center;
+    }
+
+    .gallery-title {
+      font-size: 32px;
+      margin-bottom: 40px;
+      font-weight: 600;
+      color: #5a2d0c;
+    }
+
+   
+    .swiper {
+      width: 100%;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .swiper-slide:hover {
+      transform: translateY(-5px);
+    }
+
+    .slide-image {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .caption {
+      padding: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+ 
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #B55D1A;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #B55D1A;
+    }
+
+     
+    @media (max-width:600px) {
+      .nav-links {
+        display: none;
+      }
+
+      .gallery-title {
+        font-size: 26px;
+      }
+
+      .slide-image {
+        height: 250px;
+      }
+    }
+
+
+    
+  .main-footer {
+    background-color: #e4d7bd;
+    color: #5d4037;
+    padding: 40px 20px 20px 20px;
+    margin-top: 50px;
+    border-top: 5px solid #6d4c41;
+    direction: rtl;
+    font-family: sans-serif;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+    min-width: 200px;
+  }
+
+  .footer-section h3 {
+    color: #6d4c41;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #d7ccc8;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 8px;
+  }
+
+  .footer-section a {
+    text-decoration: none;
+    color: #5d4037;
+    transition: 0.3s;
+  }
+
+  .footer-section a:hover {
+    color: #8d6e63;
+    padding-right: 5px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #d7ccc8;
+    font-size: 0.9rem;
+  }
+
+
+
+  .main-footer {
+    background-color: #fff9f0;
+    padding: 40px 0 20px;
+    border-top: 5px solid #6d4c41;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .social-icons .icon {
+    width: 40px;
+    height: 40px;
+    background-color: #6d4c41;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    flex-direction: column;
+  }
+
+  .social-icons .facebook:hover {
+    background-color: #1877F2;
+    transform: translateY(-5px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .social-icons .whatsapp:hover {
+    background-color: #25D366;
+    transform: translateY(-5px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .social-icons .instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    transform: translateY(-5px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+
+  input,
+  textarea,
+  select {
+    text-align: center;
+
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    text-align: center;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 90%;
+    padding: 12px 0;
+    margin: 10px auto;
+    display: block;
+    border: 1px solid #d7ccc8;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    text-align: center;
+  }
+
+
+  .map-container {
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+
+    margin: 10px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid #6d4c41;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .map-container:hover {
+    transform: scale(1.05);
+
+  }
+
+  .map-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(109, 76, 65, 0.8);
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .map-container iframe {
+    pointer-events: none;
+  }
+
+  </style>
+</head>
+<body>
+ 
+  <nav class="navbar">
+    <div class="logo"> Coffee☕ </div>
+    <div class="nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./About.html">About</a>
+      <a href="./Menu.html">Menu</a>
+      <a href="./اراء العملاء.html">Customer Reviews</a>
+      <a href="./index (1).html">Gallery</a>
+      <a href="./Cotactus.html">Contact</a>
+      <a href="./Cotactus.html">login</a>
+    </div>
+  </nav>
+ 
+  <section class="gallery-section">
+    <h2 class="gallery-title">Our Gallery</h2>
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814" class="slide-image"/>
+          <div class="caption">Friends sharing a joyful coffee moment</div>
+        </div>
+
+    
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb" class="slide-image"/>
+          <div class="caption">Our cozy interior and warm lighting</div>
+        </div>
+
+      
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" class="slide-image"/>
+          <div class="caption">Freshly brewed coffee perfection</div>
+        </div>
+
+       
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" class="slide-image"/>
+          <div class="caption">Relaxing moments with great company</div>
+        </div>
+
+        
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0" class="slide-image"/>
+          <div class="caption">Stylish and welcoming café design</div>
+        </div>
+
+        
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" class="slide-image"/>
+          <div class="caption">A perfect cup to start your day</div>
+        </div>
+
+ 
+        <div class="swiper-slide">
+            <img src="https://coffeebusiness.com/wp-content/uploads/2019/08/14tenents1.jpg" class="slide-image"/>
+            <div class="caption">Serving smiles and great coffee. We love seeing our place full of life!</div>
+        </div>
+ 
+         <div class="swiper-slide">
+           <img src="https://coffeebusiness.com/wp-content/uploads/2019/08/14tenents2.jpg" class="slide-image"/>
+           <div class="caption">Sunlit spaces and perfect morning vibes</div>
+         </div>
+
+ 
+        <div class="swiper-slide">
+          <img src="https://coffeebusiness.com/wp-content/uploads/2019/08/14tenents-pt2.jpg" class="slide-image"/>
+          <div class="caption">Your favorite brews, crafted with care</div>
+        </div>
+
+      </div>
+
+   
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </section>
+
+
+
+  
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Menu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <div class="footer-section">
+          <h3>Location</h3>
+          <a href="https://goo.gl/maps/xyzYourLocationLink" target="_blank" class="map-link">
+            <div class="map-box">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.646573644664!2d31.21866232175768!3d30.046764749289032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145840d742740d01%3A0x165a1729ce2ea25b!2z2YXYsdmD2LIg2KfZhNiq2LnZhNmK2YUg2KfZhNmF2K_ZhtmKINio2KfZhNis2LLZitix2Kk!5e0!3m2!1sen!2seg!4v1776721653156!5m2!1sen!2seg"
+                width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </a>
+          <p>📍 Restaurant St, City Center</p>
+          <p>📞 +123 456 789</p>
+        </div>
+        <p>📞 Phone: +123 456 789</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank" class="icon facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/123456789" target="_blank" class="icon whatsapp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" class="icon instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 All Rights Reserved | Your Restaurant Name</p>
+    </div>
+  </footer>
+
+ 
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./gallery.js"></script>
+ 
+
+</body>
+</html>

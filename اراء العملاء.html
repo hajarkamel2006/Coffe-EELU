@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Resto Cafe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" >
+    
+
+    <style>
+ 
+        :root {
+            --cream-card: #e4d7bd;
+ 
+            --text-color:#3c1e1a;
+        }
+
+
+
+        body {
+            background-color: var(--cream-card);
+            margin: 0;
+            padding: 0;
+     font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+
+        } 
+ 
+        .main-header {
+            background-color: var(--text-color);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) ;
+            position: sticky;   
+            top: 0;
+        }
+
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+
+        .logo a {
+            text-decoration: none;
+            font-weight: bold;
+            color: var(--cream-card);
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+
+        .navbar a {
+            text-decoration: none;
+            color: var(--cream-card);
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+              header li:hover{
+             color: #2c1613;
+    background-color: #e49b5b;
+         }
+
+        
+
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .container {
+            background-color: var(--text-color);
+            color: var(--text-color);
+            width: 100%;
+            max-width: 450px;
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .container h1 {
+            background-color: var(--text-color);
+            color: var(--text-color);
+            margin-bottom: 25px;
+            font-size: 24px;
+
+        }
+
+ 
+        p {
+            color: var(--text-color);
+            margin-bottom: 40;
+        }
+
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+     
+        .review-card {
+            background-color: #fff9f0;
+          
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+            
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .stars {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #7d3e2a;
+            line-height: 1.6;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .client-info img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid #6d4c41;
+        }
+
+        .client-info h4 {
+            margin: 0;
+            color: #6d4c41;
+            font-size: 16px;
+        }
+
+        input,textarea, select {
+            width: 90%;
+            margin: 12px 0;
+            padding: 12px;
+            border: 1px solid #d7ccc8;
+            border-radius: 8px;
+            font-size: 15px;
+            text-align: center;
+            outline: none;
+        }
+ 
+        .main-footer {
+            background-color: #e4d7bd;
+            padding: 50px 20px 20px;
+            border-top: 4px solid #6d4c41;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .footer-section {
+            margin-bottom: 30px;
+            min-width: 200px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            color: #5d4037;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #d7ccc8;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 6px;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+            color: #5d4037;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social-icons i {
+            font-size: 22px;
+            color: #6d4c41;
+            transition: 0.3s;
+        }
+
+        .social-icons i:hover {
+            color: #3e2723;
+            transform: scale(1.2);
+        }
+
+        .map-box {
+            width: 180px;
+            height: 100px;
+            background-color: #ddd;
+            margin: 10px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #6d4c41;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #d7ccc8;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #8d6e63;
+        }
+
+   
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header ">
+        <div class="header-container">
+            <div class="logo">
+                <a href="#">☕coffee</a>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./About.html">About Us</a></li>
+                    <li><a href="./Menu.html">Menu</a></li>
+                       <li><a href="./اراء العملاء.html">Customer Reviews</a></li>
+                        <li><a href="./index (1).html">Gallery</a></li>
+                       <li><a href="./Cotactus.html">Contact Us</a></li>
+                         <li><a href="./Cotactus.html">login</a></li>
+                   
+                  
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="main-wrapper">
+        <section class="section-title">
+            <h1>
+                <center>Customer Reviews 🌟</center>
+            </h1>
+            <p>
+                <center>What our coffee lovers say about us</center>
+            </p>
+        </section>
+        <br>
+
+        <div class="testimonials-grid">
+
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"The best Espresso I've ever had! The vibe is amazing and the service is
+                    top-notch."</p>
+                <div class="client-info">
+                    <img src="https://i.pravatar.cc/150?u=1" alt="James">
+                    <h4>James Wilson</h4>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"I love their Latte art. It’s my favorite spot for morning study sessions."</p>
+                <div class="client-info">
+                    <img src="https://i.pravatar.cc/150?u=2" alt="Sarah">
+                    <h4>Sarah Adams</h4>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐</div>
+                <p class="review-text">"The special sandwich is a must-try! Fresh ingredients and very tasty."</p>
+                <div class="client-info">
+                    <img src="https://i.pravatar.cc/150?u=3" alt="Michael">
+                    <h4>Michael Ross</h4>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Friendly staff and very fast delivery. The atmosphere is very cozy."</p>
+                <div class="client-info">
+                    <img src="https://i.pravatar.cc/150?u=4" alt="Emily">
+                    <h4>Emily Blunt</h4>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"A perfect place to relax. Their Cappuccino is definitely the best in town."</p>
+                <div class="client-info">
+                    <img src="https://i.pravatar.cc/150?u=5" alt="David">
+                    <h4>David Miller</h4>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐</div>
+                <p class="review-text">"Good prices and high quality. I highly recommend the iced coffee for summer."
+                </p>
+                <div class="client-info">
+                    <img src="https://i.pravatar.cc/150?u=6" alt="Linda">
+                    <h4>Linda Gray</h4>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <br><br><br><br>
+
+
+    <footer class="main-footer">
+        <div class="footer-content">
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-facebook"></i>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p style="font-weight: bold; margin-bottom: 5px;">Location</p>
+                <div class="map-box">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.646573644664!2d31.21866232175768!3d30.046764749289032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145840d742740d01%3A0x165a1729ce2ea25b!2z2YXYsdmD2LIg2KfZhNiq2LnZhNmK2YUg2KfZhNmF2K_ZhtmKINio2KfZhNis2LLZitix2Kk!5e0!3m2!1sen!2seg!4v1776721653156!5m2!1sen!2seg"
+                        width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <p style="font-size: 13px; margin: 5px 0;">📍 Restaurant St, City Center</p>
+                <p style="font-size: 13px;">📞 +123 456 789</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./About.html">About Us</a></li>
+                    <li><a href="./Menu.html">Menu</a></li>
+                     <li><a href="./اراء العملاء.html">Customer Reviews</a></li>
+                        <li><a href="./index (1).html">Gallery</a></li>
+                       <li><a href="./Cotactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>All Rights Reserved | Your Restaurant Name 2024 ©</p>
+        </div>
+    </footer>
+ <script src="./اراء.js"></script>
+</body>
+
+</html>
